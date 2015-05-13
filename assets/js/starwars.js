@@ -43,7 +43,7 @@ function memoryFlipTile(tile, val) {
                 var tile_2 = document.getElementById(memory_tile_ids[1]);
                 tile_1.style.background = 'none';
                 //maybe get rid of numbers
-                 tile_1.innerHTML.style = 'none';
+                tile_1.innerHTML.style = 'none';
                 //tile_2.style.background = 'none';
                 //tile_2.innerHTML = "";
                 //second tile cleared
@@ -62,9 +62,9 @@ function memoryFlipTile(tile, val) {
                     // Flip the 2 tiles back over
                     var tile_1 = document.getElementById(memory_tile_ids[0]);
                     var tile_2 = document.getElementById(memory_tile_ids[1]);
-                    tile_1.style.background = 'url(images.png) no-repeat';
+                    tile_1.style.background = "url(assets/images/images.png) no-repeat";
                     tile_1.innerHTML = "";
-                    tile_2.style.background = 'url(images.png) no-repeat';
+                    tile_2.style.background = "url(assets/images/images.png) no-repeat";
                     tile_2.innerHTML = "";
                     // Clear both arrays
                     memory_values = [];
