@@ -1,7 +1,26 @@
-var memory_array = ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8', '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14', '15', '15'];
+
 var memory_values = [];
 var memory_tile_ids = [];
 var tiles_flipped = 0;
+//API calling?
+var numMatches = 2;
+var count = 0;
+var people = [];
+
+for (var i = 1; i < 3; i += 1) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        people = people.concat(JSON.parse(this.responseText).results);
+        name = JSON.parse(this.responseText).results;
+        count++;
+        if (count == 2) {
+        newBoard(people);
+      }
+    }
+    xhr.open("GET", "http://swapi.co/api/people/?page" + i);
+    xhr.send();
+
+}
 
 Array.prototype.memory_tile_shuffle = function() {
     var i = this.length,
@@ -17,9 +36,9 @@ Array.prototype.memory_tile_shuffle = function() {
 function newBoard() {
     tiles_flipped = 0;
     var output = '';
-    memory_array.memory_tile_shuffle();
-    for (var i = 0; i < memory_array.length; i++) {
-        output += '<div id="tile_' + i + '" onclick="memoryFlipTile(this,\'' + memory_array[i] + '\')"></div>';
+    people.memory_tile_shuffle();
+    for (var i = 0; i < people.length; i++) {
+        output += '<div id="tile_' + i + '" onclick="memoryFlipTile(this,\'' + people[i] + '\')"></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
 }
@@ -43,19 +62,18 @@ function memoryFlipTile(tile, val) {
                 var tile_2 = document.getElementById(memory_tile_ids[1]);
                 tile_1.style.background = 'none';
                 //maybe get rid of numbers
-                 tile_1.innerHTML.style = 'none';
-                //tile_2.style.background = 'none';
-                //tile_2.innerHTML = "";
+                tile_1.innerHTML.style = "";
+                
                 //second tile cleared
                 tile.style.background = 'none';
                 // Clear both arrays
                 memory_values = [];
                 memory_tile_ids = [];
                 // Check to see if the whole board is cleared
-                if (tiles_flipped == memory_array.length) {
-                    alert("Board cleared... generating new board");
-                    document.getElementById('memory_board').innerHTML = "";
-                    newBoard();
+                if (tiles_flipped == people.length) {
+                    //alert("Board cleared... generating new board");
+                    //document.getElementById('memory_board').innerHTML = "";
+                    //newBoard();
                 }
             } else {
                 function flip2Back() {
@@ -75,4 +93,4 @@ function memoryFlipTile(tile, val) {
         }
     }
 }
-newBoard();
+//newBoard();
