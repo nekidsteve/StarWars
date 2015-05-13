@@ -1,8 +1,20 @@
-.card{
-	width: 50px;
-	height: 100px;
-	background-color: blue;
+#memory_board {
+	background: url(Death-Star.jpg) no-repeat;
+	border: #999 1px solid;
+	width: 900px;
+	height: 800px;
+	margin-left: 25px;
+	
 }
-.btn btn-default{
-	width: 50px;
+#memory_board div {
+	background: url(images.png) no-repeat;
+	border:#000 1px solid;
+	width:87px;
+	height:87px;
+	float:left;
+	margin:10px;
+	padding:20px;
+	font-size:64px;
+	cursor:pointer;
+	text-align:center;
 }
