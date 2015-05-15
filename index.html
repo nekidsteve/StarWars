@@ -3,11 +3,29 @@
 
 <head>
     <link type="text/css" rel="stylesheet" href="starwars.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            
+            <!-- start game button -->
+            <form class="navbar-form navbar-left">
+                <button class="btn btn-default id="startGame><a href="#" onclick="activate()">Start Game</a></button>
+                <div>
+                <span id="mins">0</span>:<span id="secs">0</span>
+            </div>
+            </form>
+            
+            
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 </head>
 
 <body>
-    <div id="memory_board"></div>
-    <div id="starwars"></div>
+    <section>
+        <div id="memory_board"></div>
+    </section>
     <script src="starwars.js"></script>
 </body>
 
